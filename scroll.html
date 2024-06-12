@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bảng Màu Nền</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      table {
+        width: auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 0;
+        width: 36px;
+        height: 36px;
+        text-align: left;
+        /* word-break: break-word; */
+      }
+      tbody tr:first-child th,
+      tbody tr:last-child th {
+        height: 10px;
+        border-top: 0px;
+      }
+      tbody tr:last-child th {
+        border-bottom: 2px solid red;
+      }
+      tr:first-child th:first-child::before {
+        content: "18";
+        font-size: 20px;
+        position: absolute;
+        top: -1px;
+        left: -24px;
+      }
+      tr:nth-child(2) th:first-child::before {
+        content: "15";
+        font-size: 20px;
+        position: absolute;
+        bottom: -10px;
+        left: -24px;
+      }
+      tr:nth-child(3) th:first-child::before {
+        content: "12";
+        font-size: 20px;
+        position: absolute;
+        bottom: -10px;
+        left: -24px;
+      }
+      tr:nth-child(4) th:first-child::before {
+        content: "9";
+        font-size: 20px;
+        position: absolute;
+        bottom: -10px;
+        left: -15px;
+      }
+      tr:nth-child(5) th:first-child::before {
+        content: "6";
+        font-size: 20px;
+        position: absolute;
+        bottom: -10px;
+        left: -15px;
+      }
+      tr:nth-child(6) th:first-child::before {
+        content: "3";
+        font-size: 20px;
+        position: absolute;
+        bottom: -10px;
+        left: -15px;
+      }
+      .custom-cell {
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+        border-radius: 50%;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="position: relative">
+      <div style="margin-left: 24px">
+        <table>
+          <tbody>
+            <tr>
+              <th
+                style="
+                  width: 10px;
+                  border-left: 2px solid red;
+                  position: relative;
+                "
+              ></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="width: 10px; border-right: 0px solid red"></th>
+            </tr>
+            <tr style="background-color: red" id="15to18">
+              <th
+                style="
+                  width: 10px;
+                  border-left: 2px solid red;
+                  position: relative;
+                "
+              ></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="width: 10px; border-right: 0px solid red"></th>
+            </tr>
+            <tr style="background-color: blue" id="12to14">
+              <th
+                style="
+                  width: 10px;
+                  border-left: 2px solid red;
+                  position: relative;
+                "
+              ></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="width: 10px; border-right: 0px solid red"></th>
+            </tr>
+            <tr style="background-color: green" id="9to11">
+              <th
+                style="
+                  width: 10px;
+                  border-left: 2px solid red;
+                  position: relative;
+                "
+              ></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="width: 10px; border-right: 0px solid red"></th>
+            </tr>
+            <tr style="background-color: pink" id="6to8">
+              <th
+                style="
+                  width: 10px;
+                  border-left: 2px solid red;
+                  position: relative;
+                "
+              ></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="width: 10px; border-right: 0px solid red"></th>
+            </tr>
+            <tr style="background-color: gray" id="3to5">
+              <th
+                style="
+                  width: 10px;
+                  border-left: 2px solid red;
+                  position: relative;
+                "
+              ></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="width: 10px; border-right: 0px solid red"></th>
+            </tr>
+            <tr>
+              <th style="width: 10px; border-left: 2px solid red"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="position: relative"></th>
+              <th style="width: 10px; border-right: 0px solid red"></th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
