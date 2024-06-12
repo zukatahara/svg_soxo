@@ -4,39 +4,45 @@ const chinToMuoiMot = document.getElementById("9to11");
 const muoihaiToMuoiBon = document.getElementById("12to14");
 const muoiLamToMuoiTam = document.getElementById("15to18");
 
-const number = 16;
-const idx = 2;
+// const number = 16;
+// const idx = 0;
 let result;
 let itemIndexOf;
-switch (number) {
-  case 3:
-  case 4:
-  case 5:
-    itemIndexOf = [3, 4, 5].indexOf(number);
-    createDiv(number, idx, baToNam);
-    break;
-  case 6:
-  case 7:
-  case 8:
-    itemIndexOf = [6, 7, 8].indexOf(number);
-    createDiv(number, idx, sauToTam);
-    break;
-  case 9:
-  case 10:
-  case 11:
-    itemIndexOf = [9, 10, 11].indexOf(number);
-    createDiv(number, idx, chinToMuoiMot);
-    break;
-  case 12:
-  case 13:
-  case 14:
-    itemIndexOf = [12, 13, 14].indexOf(number);
-    createDiv(number, idx, muoihaiToMuoiBon);
-    break;
-  default:
-    itemIndexOf = [15, 16, 17, 18].indexOf(number);
-    createDiv(number, idx, muoiLamToMuoiTam);
-    break;
+function range(arr) {
+  for (let index = 0; index < arr.length; index++) {
+    const number = arr[index];
+    const idx = index;
+    switch (number) {
+      case 3:
+      case 4:
+      case 5:
+        itemIndexOf = [3, 4, 5].indexOf(number);
+        createDiv(number, idx, baToNam);
+        break;
+      case 6:
+      case 7:
+      case 8:
+        itemIndexOf = [6, 7, 8].indexOf(number);
+        createDiv(number, idx, sauToTam);
+        break;
+      case 9:
+      case 10:
+      case 11:
+        itemIndexOf = [9, 10, 11].indexOf(number);
+        createDiv(number, idx, chinToMuoiMot);
+        break;
+      case 12:
+      case 13:
+      case 14:
+        itemIndexOf = [12, 13, 14].indexOf(number);
+        createDiv(number, idx, muoihaiToMuoiBon);
+        break;
+      default:
+        itemIndexOf = [15, 16, 17, 18].indexOf(number);
+        createDiv(number, idx, muoiLamToMuoiTam);
+        break;
+    }
+  }
 }
 
 function createDiv(number, idx, parentDiv) {
@@ -60,3 +66,7 @@ function createDiv(number, idx, parentDiv) {
   // Thêm span vào th đầu tiên
   firstTd.appendChild(span);
 }
+const arr = new Array(21)
+  .fill(0)
+  .map((item) => Math.floor(Math.random() * (18 - 3 + 1)) + 3);
+range(arr);
