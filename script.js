@@ -47,7 +47,7 @@ function range(arr) {
 
 function createDiv(number, idx, parentDiv) {
   const firstTd = parentDiv.querySelectorAll("th")[idx];
-  firstTd.style.backgroundColor = "black"; // Đổi màu nền sang đỏ
+  firstTd.style.backgroundColor = "#9BEC00"; // Đổi màu nền sang đỏ
   // Tạo phần tử span với class custom-cell và thêm giá trị 2 vào
   const span = document.createElement("span");
   span.classList.add("custom-cell");
@@ -61,6 +61,14 @@ function createDiv(number, idx, parentDiv) {
     span.style.bottom = itemIndexOf * 13.3 - 15 + "px";
   } else {
     span.style.bottom = itemIndexOf * 13.3 - 10 + "px";
+  }
+  if (number < 11) {
+    span.style.background="white"
+    span.style.color="black"
+  }else{
+     span.style.background="black"
+    span.style.color="white"
+
   }
 
   // Thêm span vào th đầu tiên
