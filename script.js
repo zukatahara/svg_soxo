@@ -43,6 +43,9 @@ function range(arr) {
         break;
     }
   }
+  const activeNodeList = document.querySelectorAll(".custom-cell");
+  console.log("activeNodeList:", activeNodeList);
+  createLine(activeNodeList);
 }
 
 function createDiv(number, idx, parentDiv) {
@@ -63,18 +66,68 @@ function createDiv(number, idx, parentDiv) {
     span.style.bottom = itemIndexOf * 13.3 - 10 + "px";
   }
   if (number < 11) {
-    span.style.background="white"
-    span.style.color="black"
-  }else{
-     span.style.background="black"
-    span.style.color="white"
-
+    span.style.background = "white";
+    span.style.color = "black";
+  } else {
+    span.style.background = "black";
+    span.style.color = "white";
   }
 
   // Thêm span vào th đầu tiên
   firstTd.appendChild(span);
 }
-const arr = new Array(21)
+function createLine(activeNodeList) {
+  const line = document.getElementById("line");
+  line.innerHTML = "";
+  for (let i = 0; i < activeNodeList.length - 1; i++) {
+    if (i < activeNodeList.length - 1) {
+      const rs = findPosition(
+        activeNodeList[i].getBoundingClientRect(),
+        activeNodeList[i + 1].getBoundingClientRect()
+      );
+      var svgLine1 = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line"
+      );
+      svgLine1.setAttribute("x1", rs.x1);
+      svgLine1.setAttribute("y1", rs.y1);
+      svgLine1.setAttribute("x2", rs.x2);
+      svgLine1.setAttribute("y2", rs.y2);
+      svgLine1.setAttribute("stroke", "#03AED2");
+      svgLine1.setAttribute("stroke-width", "2");
+      line.appendChild(svgLine1);
+    }
+  }
+  //
+}
+function findPosition(item1, item2) {
+  const obj = {
+    x1: 0,
+    y1: 0,
+    x2: 0,
+    y2: 0,
+  };
+  if (item1.left === item2.left) {
+    obj.x1 = (item1.left + item1.right) / 2;
+    obj.y1 = item1.bottom;
+    obj.x2 = (item2.left + item2.right) / 2;
+    obj.y2 = item2.top;
+  }
+  if (item1.left < item2.left) {
+    obj.x1 = item1.right;
+    obj.y1 = (item1.bottom + item1.top) / 2;
+    obj.x2 = item2.left;
+    obj.y2 = (item2.top + item2.bottom) / 2;
+  }
+  if (item1.left > item2.left) {
+    obj.x1 = item1.left;
+    obj.y1 = (item1.bottom + item1.top) / 2;
+    obj.x2 = item2.right;
+    obj.y2 = (item2.top + item2.bottom) / 2;
+  }
+  return obj;
+}
+const arr = new Array(4)
   .fill(0)
   .map((item) => Math.floor(Math.random() * (18 - 3 + 1)) + 3);
 range(arr);
