@@ -3,7 +3,7 @@ const sauToTam = document.getElementById("6to8");
 const chinToMuoiMot = document.getElementById("9to11");
 const muoihaiToMuoiBon = document.getElementById("12to14");
 const muoiLamToMuoiTam = document.getElementById("15to18");
-
+let activeNodeList = [];
 // const number = 16;
 // const idx = 0;
 let result;
@@ -43,14 +43,16 @@ function range(arr) {
         break;
     }
   }
-  const activeNodeList = document.querySelectorAll(".custom-cell");
   console.log("activeNodeList:", activeNodeList);
+
+  //   const activeNodeList = document.querySelectorAll(".custom-cell");
+  //   console.log("activeNodeList:", activeNodeList);
   createLine(activeNodeList);
 }
 
 function createDiv(number, idx, parentDiv) {
   const firstTd = parentDiv.querySelectorAll("th")[idx];
-  firstTd.style.backgroundColor = "#9BEC00"; // Đổi màu nền sang đỏ
+  //   firstTd.style.backgroundColor = "#9BEC00"; // Đổi màu nền sang đỏ
   // Tạo phần tử span với class custom-cell và thêm giá trị 2 vào
   const span = document.createElement("span");
   span.classList.add("custom-cell");
@@ -72,7 +74,7 @@ function createDiv(number, idx, parentDiv) {
     span.style.background = "black";
     span.style.color = "white";
   }
-
+  activeNodeList.push(span);
   // Thêm span vào th đầu tiên
   firstTd.appendChild(span);
 }
@@ -83,7 +85,9 @@ function createLine(activeNodeList) {
     if (i < activeNodeList.length - 1) {
       const rs = findPosition(
         activeNodeList[i].getBoundingClientRect(),
-        activeNodeList[i + 1].getBoundingClientRect()
+        activeNodeList[i + 1].getBoundingClientRect(),
+        +activeNodeList[i].textContent,
+        +activeNodeList[i + 1].textContent
       );
       var svgLine1 = document.createElementNS(
         "http://www.w3.org/2000/svg",
@@ -100,34 +104,44 @@ function createLine(activeNodeList) {
   }
   //
 }
-function findPosition(item1, item2) {
+function findPosition(item1, item2, valueItem1, valueItem2) {
   const obj = {
     x1: 0,
     y1: 0,
     x2: 0,
     y2: 0,
   };
-  if (item1.left === item2.left) {
-    obj.x1 = (item1.left + item1.right) / 2;
-    obj.y1 = item1.bottom;
-    obj.x2 = (item2.left + item2.right) / 2;
-    obj.y2 = item2.top;
-  }
-  if (item1.left < item2.left) {
+  if (valueItem1 === valueItem2) {
+    console.log(`vao day`);
+    // obj.x1 = (item1.left + item1.right) / 2;
+    // obj.y1 = item1.bottom;
+    // obj.x2 = (item2.left + item2.right) / 2;
+    // obj.y2 = item2.top;
     obj.x1 = item1.right;
-    obj.y1 = (item1.bottom + item1.top) / 2;
+    obj.y1 = (item1.top + item1.bottom) / 2;
+    obj.x2 = item2.left;
+    obj.y2 = (item1.top + item1.bottom) / 2;
+  }
+  if (valueItem1 < valueItem2) {
+    console.log("item1.left < item2.left:", item1.left < item2.left);
+    obj.x1 = item1.right;
+    obj.y1 = (item1.top + item1.bottom) / 2;
+    obj.x2 = (item2.right + item2.left) / 2;
+    obj.y2 = item2.bottom;
+  }
+  if (valueItem1 > valueItem2) {
+    obj.x1 = (item1.right + item1.left) / 2;
+    obj.y1 = item1.bottom;
     obj.x2 = item2.left;
     obj.y2 = (item2.top + item2.bottom) / 2;
-  }
-  if (item1.left > item2.left) {
-    obj.x1 = item1.left;
-    obj.y1 = (item1.bottom + item1.top) / 2;
-    obj.x2 = item2.right;
-    obj.y2 = (item2.top + item2.bottom) / 2;
+    // obj.x1 = (item1.right + item1.left) / 2;
+    // obj.y1 = item1.bottom;
+    // obj.x2 = (item2.right + item2.left) / 2
+    // obj.y2 = item2.top ;
   }
   return obj;
 }
-const arr = new Array(4)
+const arr = new Array(19)
   .fill(0)
   .map((item) => Math.floor(Math.random() * (18 - 3 + 1)) + 3);
 range(arr);
